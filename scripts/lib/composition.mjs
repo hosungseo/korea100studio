@@ -32,6 +32,7 @@ function edgeSegments(edge, context) {
   if (!source || !target) return null;
   const { path } = edgeRoute(edge, source, target, context);
   return {
+    edge,
     source,
     target,
     segments: orthogonalSegments(path),
@@ -95,12 +96,12 @@ function segmentPiercesRect(segment, rect) {
   return min < bottom && max > top;
 }
 
-function countNodePiercings(edges, routes, context) {
+function countNodePiercings(routes, context) {
   const nodes = [...context.nodeLayout.entries()];
   let piercings = 0;
   const offenders = [];
-  routes.forEach((route, index) => {
-    const edge = edges[index];
+  routes.forEach((route) => {
+    const edge = route.edge;
     for (const [nodeId, rect] of nodes) {
       if (nodeId === edge.source || nodeId === edge.target) continue;
       if (route.segments.some((segment) => segmentPiercesRect(segment, rect))) {
@@ -144,7 +145,7 @@ export function computeComposition(board, profile = "default") {
   const routes = edges.map((edge) => edgeSegments(edge, context)).filter(Boolean);
 
   const crossings = countCrossings(routes);
-  const { piercings, offenders } = countNodePiercings(edges, routes, context);
+  const { piercings, offenders } = countNodePiercings(routes, context);
 
   const bends = routes.map((route) => Math.max(0, route.segments.length - 1));
   const bendsPerEdgeMax = bends.length ? Math.max(...bends) : 0;
