@@ -215,7 +215,7 @@
     <text x="1144" y="2243" font-size="15" fill="#526159">Loop</text>
     <text x="38" y="2291" font-size="15.5" font-weight="650" fill="#56655d">Stages read top to bottom; actor groups read left to right.</text>
     <text x="38" y="2321" font-size="14.5" fill="#68776f">3 actor lanes are arranged into 3 layout groups; 8 tasks and 9 connections are preserved.</text>
-    <text x="38" y="2361" font-size="13.5" fill="#7b8881">Source: process model derived from the underlying rules. Not legal advice and not an indicator of any real case status.</text>
+    <text x="38" y="2361" font-size="13.5" fill="#7b8881">Generated from the described process model — illustrative, not a system of record.</text>
     
   
 </g>

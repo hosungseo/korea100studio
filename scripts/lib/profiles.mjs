@@ -64,7 +64,7 @@ const DEFAULT = {
       "{lanes} actor lanes are arranged into {groups} layout groups; {nodes} tasks and {edges} connections are preserved.",
     readingNote: "Stages read top to bottom; actor groups read left to right.",
     sourceNote:
-      "Source: process model derived from the underlying rules. Not legal advice and not an indicator of any real case status.",
+      "Generated from the described process model — illustrative, not a system of record.",
     creditLine: "",
   },
 };

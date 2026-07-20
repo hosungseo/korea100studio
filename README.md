@@ -71,7 +71,7 @@ node scripts/board.mjs motion fixtures/generic-sample.json --out board.motion.sv
 | Command | Purpose |
 |---|---|
 | `render <board.json> [--out f.svg] [--png] [--profile p]` | Render board to SVG; PNG if a rasterizer is present |
-| `audit <board.json> [--profile p]` | Print composition score + metrics |
+| `audit <board.json> [--json] [--profile p]` | Print composition score + metrics (`--json` for machine-readable output) |
 | `validate <board.json> [--strict] [--profile p]` | Schema + composition gate (exit 1 on strict breach) |
 | `motion <board.json> [--out f.svg] [--profile p]` | Animated stage-reveal SVG |
 | `check <file.svg>` | Structural SVG sanity check |

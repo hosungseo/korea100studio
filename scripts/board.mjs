@@ -14,7 +14,7 @@ const USAGE = `Usage: korea100studio <command> <board.json> [options]
 
 Commands:
   render <board.json> [--out f.svg] [--png] [--profile p]   Render a board to SVG (and optionally PNG)
-  audit <board.json> [--profile p]                          Print composition score and key metrics
+  audit <board.json> [--json] [--profile p]                 Print composition score and key metrics
   validate <board.json> [--strict] [--profile p]             Validate schema and composition budgets
   motion <board.json> [--out f.svg] [--profile p]  Render an animated (motion) SVG
   check <file.svg>                                           Sanity-check that a file is a well-formed SVG
@@ -123,6 +123,16 @@ function cmdAudit(argv) {
     process.exit(1);
   }
   const m = result.metrics;
+  if (flags.json) {
+    console.log(
+      JSON.stringify(
+        { name: result.name, score: result.score, metrics: m, violations: result.violations },
+        null,
+        2
+      )
+    );
+    return;
+  }
   console.log(`Board: ${result.name}`);
   console.log(`score: ${result.score}`);
   console.log(`  nodePiercings: ${m.nodePiercings}`);

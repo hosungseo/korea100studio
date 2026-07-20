@@ -56,3 +56,10 @@ test("no command exits 0 with help", () => {
 test("unknown command exits non-zero", () => {
   assert.throws(() => execFileSync("node", [CLI, "frobnicate"], { stdio: "ignore" }));
 });
+
+test("audit --json emits parseable JSON with score and metrics", () => {
+  const out = execFileSync("node", [CLI, "audit", "fixtures/generic-sample.json", "--json"], { encoding: "utf8" });
+  const parsed = JSON.parse(out);
+  assert.equal(typeof parsed.score, "number");
+  assert.ok(parsed.metrics && typeof parsed.metrics.nodePiercings === "number");
+});
