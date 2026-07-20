@@ -9,6 +9,7 @@
   "files": [
     "SKILL.md",
     "README.md",
+    "README.ko.md",
     "CHANGELOG.md",
     "LICENSE",
     "agents/",

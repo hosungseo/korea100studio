@@ -4,6 +4,8 @@
 [![CI](https://github.com/hosungseo/korea100studio/actions/workflows/ci.yml/badge.svg)](https://github.com/hosungseo/korea100studio/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/korea100studio.svg)](LICENSE)
 
+📖 **English** · [한국어](README.ko.md)
+
 Turn any process — actors × stages × steps — into a **vertical swimlane board**
 (SVG, optional PNG), **audit its composition quality**, and render a
 **stage-ordered reveal animation**. korea100studio is a standalone Agent Skill
