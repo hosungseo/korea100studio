@@ -10,7 +10,7 @@ import { computeComposition, budgetViolations } from "./lib/composition.mjs";
 import { buildMotionSvg } from "./lib/motion.mjs";
 import { rasterize, rasterizerAvailable } from "./lib/rasterize.mjs";
 
-const USAGE = `Usage: board <command> <board.json> [options]
+const USAGE = `Usage: korea100studio <command> <board.json> [options]
 
 Commands:
   render <board.json> [--out f.svg] [--png] [--profile p]   Render a board to SVG (and optionally PNG)
@@ -214,6 +214,13 @@ function cmdCheck(argv) {
 function main() {
   const [command, ...rest] = process.argv.slice(2);
 
+  // An explicit help request succeeds (exit 0) and prints to stdout;
+  // a missing or unknown command is a usage error (exit 2) on stderr.
+  if (command === undefined || command === "help" || command === "--help" || command === "-h") {
+    console.log(USAGE);
+    process.exit(0);
+  }
+
   switch (command) {
     case "render":
       return cmdRender(rest);
@@ -226,6 +233,7 @@ function main() {
     case "check":
       return cmdCheck(rest);
     default:
+      console.error(`error: unknown command '${command}'\n`);
       console.error(USAGE);
       process.exit(2);
   }

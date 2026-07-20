@@ -8,6 +8,19 @@ extracted and generalized from
 inside **Claude Code** and **Codex** via a `SKILL.md` entry point plus a small
 zero-native-dependency ESM CLI (`scripts/board.mjs`).
 
+## Examples
+
+Same engine, two profiles — a neutral software-release board (`default`) and a
+korea100-style government board (`gov`):
+
+| `default` profile | `gov` profile |
+|---|---|
+| ![default profile example](assets/example-default.png) | ![gov profile example](assets/example-gov.png) |
+
+Boards also export a stage-ordered reveal animation (self-contained SMIL SVG) —
+see [`assets/example-motion.svg`](assets/example-motion.svg), generated with
+`node scripts/board.mjs motion fixtures/generic-sample.json`.
+
 ## Install
 
 Clone into your agent's skills directory:

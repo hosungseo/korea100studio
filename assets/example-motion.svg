@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="2400" viewBox="0 0 1800 2400">
+  <g>
+<defs>
+      <filter id="card-shadow" x="-20%" y="-25%" width="140%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12271e" flood-opacity="0.10"/>
+      </filter>
+      <marker id="arrow-sequence" markerWidth="17" markerHeight="13" refX="15" refY="6.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L16,6.5 L1,12 Z" fill="#53675d" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-message" markerWidth="17" markerHeight="13" refX="15" refY="6.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L16,6.5 L1,12 Z" fill="#0f8a65" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round"/>
+  </marker>
+      <marker id="arrow-loop" markerWidth="17" markerHeight="13" refX="15" refY="6.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M1,1 L16,6.5 L1,12 Z" fill="#3478db" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round"/>
+  </marker>
+      <style>
+        text { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans CJK KR", "Noto Sans KR", sans-serif; }
+        .mono { font-family: "SFMono-Regular", "Menlo", monospace; }
+      </style>
+    </defs>
+<rect width="1800" height="2400" fill="#ffffff"/>
+<rect x="0" y="0" width="1800" height="240" fill="#07150f"/>
+<rect x="0" y="0" width="1800" height="9" fill="#18a87b"/>
+
+    <text x="1760" y="45" text-anchor="end" font-size="15" font-weight="700" fill="#8fa299">8 nodes · 3 lanes · 4 stages</text>
+    <text x="40" y="132" font-size="48" font-weight="850" fill="#ffffff">Software Release Process</text>
+    <text x="40" y="174" font-size="19" font-weight="520" fill="#b7c7bf">From scoping a feature to shipping it to production</text>
+    
+  
+<rect x="38" y="260" width="1724" height="1940" rx="10" fill="#ffffff" stroke="#b8c7bf" stroke-width="2"/>
+<rect x="38" y="260" width="190" height="100" rx="10" fill="#eaf2ee"/>
+<text x="58" y="299" font-size="17" font-weight="800" fill="#17231d">Stage ↓</text>
+<text x="58" y="332" font-size="15" font-weight="650" fill="#68776f">Actor group →</text>
+<rect x="38" y="360" width="1724" height="403" fill="#fbfcfb"/>
+<rect x="38" y="360" width="190" height="403" fill="#e4f5ed"/>
+<text x="58" y="392" class="mono" font-size="16" font-weight="800" fill="#1e293b"></text>
+<text x="58" y="425" font-size="19" font-weight="800" fill="#1e293b"><tspan x="58" dy="0">Plan</tspan></text>
+<rect x="38" y="763" width="1724" height="403" fill="#8f949d"/>
+<rect x="38" y="763" width="190" height="403" fill="#1e293b"/>
+<text x="58" y="795" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="828" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">Build</tspan></text>
+<rect x="38" y="1166" width="1724" height="517" fill="#fbfcfb"/>
+<rect x="38" y="1166" width="190" height="517" fill="#eef3f0"/>
+<text x="58" y="1198" class="mono" font-size="16" font-weight="800" fill="#53645b"></text>
+<text x="58" y="1231" font-size="19" font-weight="800" fill="#53645b"><tspan x="58" dy="0">Test</tspan></text>
+<rect x="38" y="1683" width="1724" height="517" fill="#8f949d"/>
+<rect x="38" y="1683" width="190" height="517" fill="#1e293b"/>
+<text x="58" y="1715" class="mono" font-size="16" font-weight="800" fill="#ffffff"></text>
+<text x="58" y="1748" font-size="19" font-weight="800" fill="#ffffff"><tspan x="58" dy="0">Ship</tspan></text>
+<rect x="228" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="228" y="260" width="511.3" height="7" fill="#0f9f72"/>
+<text x="248" y="299" font-size="20" font-weight="800" fill="#17231d">Dev</text>
+<text x="248" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="248" dy="0">Dev</tspan></text>
+<rect x="739.3" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="739.3" y="260" width="511.3" height="7" fill="#3b82f6"/>
+<text x="759.3" y="299" font-size="20" font-weight="800" fill="#17231d">QA</text>
+<text x="759.3" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="759.3" dy="0">QA</tspan></text>
+<rect x="1250.7" y="260" width="511.3" height="100" fill="#f7faf8"/>
+<rect x="1250.7" y="260" width="511.3" height="7" fill="#c78116"/>
+<text x="1270.7" y="299" font-size="20" font-weight="800" fill="#17231d">Release</text>
+<text x="1270.7" y="329" font-size="13.5" font-weight="600" fill="#68776f"><tspan x="1270.7" dy="0">Release</tspan></text>
+<line x1="228" y1="260" x2="228" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="739.3" y1="260" x2="739.3" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1250.7" y1="260" x2="1250.7" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="1762" y1="260" x2="1762" y2="2200" stroke="#d3dcd7" stroke-width="1.5"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#b8c7bf" stroke-width="2"/>
+<line x1="38" y1="360" x2="1762" y2="360" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="763" x2="1762" y2="763" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1166" x2="1762" y2="1166" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="1683" x2="1762" y2="1683" stroke="#c8d3cd" stroke-width="1.5"/>
+<line x1="38" y1="2200" x2="1762" y2="2200" stroke="#b8c7bf" stroke-width="2"/>
+<path d="M 473.7 606.5 V 751 H 473.7 V 911.5" fill="none" stroke="#ffffff" stroke-width="7.4"  stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 473.7 606.5 V 751 H 473.7 V 911.5" fill="none" stroke="#53675d" stroke-width="3.4"  marker-end="url(#arrow-sequence)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 618.7 971 H 832 V 967 H 852" fill="none" stroke="#ffffff" stroke-width="7.4"  stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 618.7 971 H 832 V 967 H 852" fill="none" stroke="#53675d" stroke-width="3.4"  marker-end="url(#arrow-sequence)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 481.7 606.5 V 735 H 975 V 911.5" fill="none" stroke="#ffffff" stroke-width="7.4" stroke-dasharray="11 8" stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 481.7 606.5 V 735 H 975 V 911.5" fill="none" stroke="#0f8a65" stroke-width="3.4" stroke-dasharray="11 8" marker-end="url(#arrow-message)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1003 1009.5 V 1138 H 995 V 1314.5" fill="none" stroke="#ffffff" stroke-width="7.4"  stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 1003 1009.5 V 1138 H 995 V 1314.5" fill="none" stroke="#53675d" stroke-width="3.4"  marker-end="url(#arrow-sequence)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1021 1412.5 V 1428.5 H 983 V 1428.5" fill="none" stroke="#ffffff" stroke-width="7.4"  stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 1021 1412.5 V 1428.5 H 983 V 1428.5" fill="none" stroke="#53675d" stroke-width="3.4"  marker-end="url(#arrow-sequence)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 860 1468.5 H 646.7 V 1431 H 626.7" fill="none" stroke="#ffffff" stroke-width="8" stroke-dasharray="10 8" stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 860 1468.5 H 646.7 V 1431 H 626.7" fill="none" stroke="#3478db" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#arrow-loop)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 618.7 1420.5 H 819 V 1357 H 852" fill="none" stroke="#ffffff" stroke-width="7.4"  stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 618.7 1420.5 H 819 V 1357 H 852" fill="none" stroke="#53675d" stroke-width="3.4"  marker-end="url(#arrow-sequence)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1009 1526.5 V 1639 H 1502.3 V 1831.5" fill="none" stroke="#ffffff" stroke-width="7.4"  stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 1009 1526.5 V 1639 H 1502.3 V 1831.5" fill="none" stroke="#53675d" stroke-width="3.4"  marker-end="url(#arrow-sequence)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<path d="M 1516.3 1929.5 V 1945.5 H 1500.3 V 1945.5" fill="none" stroke="#ffffff" stroke-width="7.4"  stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M 1516.3 1929.5 V 1945.5 H 1500.3 V 1945.5" fill="none" stroke="#53675d" stroke-width="3.4"  marker-end="url(#arrow-sequence)" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+<rect x="672.3" y="703" width="112.1" height="30" rx="6" fill="#ffffff" stroke="#0f8a65" stroke-width="1.4"/>
+<text x="728.3" y="723" text-anchor="middle" font-size="14" font-weight="750" fill="#0f8a65">scope brief</text>
+<rect x="679.2" y="1417.8" width="120.2" height="30" rx="6" fill="#ffffff" stroke="#3478db" stroke-width="1.4"/>
+<text x="739.3" y="1437.8" text-anchor="middle" font-size="14" font-weight="750" fill="#3478db">needs rework</text>
+<rect x="691.3" y="1356.8" width="96" height="30" rx="6" fill="#ffffff" stroke="#53675d" stroke-width="1.4"/>
+<text x="739.3" y="1376.8" text-anchor="middle" font-size="14" font-weight="750" fill="#53675d">retest</text>
+<rect x="1207.7" y="1607" width="96" height="30" rx="6" fill="#ffffff" stroke="#53675d" stroke-width="1.4"/>
+<text x="1255.7" y="1627" text-anchor="middle" font-size="14" font-weight="750" fill="#53675d">passes</text>
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="348.7" y="516.5" width="270" height="90" rx="8" fill="#eef6ff" stroke="#3b82f6" stroke-width="2.3"/>
+      <rect x="348.7" y="516.5" width="6" height="90" rx="3" fill="#3b82f6"/>
+      <text x="363.7" y="536.5" class="mono" font-size="12.5" font-weight="750" fill="#3563a8">n1</text>
+      
+      <rect x="558.7" y="523.5" width="50" height="24" rx="5" fill="#3b82f6" opacity="0.14"/>
+      <text x="583.7" y="540.5" text-anchor="middle" font-size="12" font-weight="800" fill="#1e3a5f">Lead</text>
+      <text x="363.7" y="573.5" font-size="15.5" font-weight="800" fill="#1e3a5f"><tspan x="363.7" dy="0">Define scope</tspan></text>
+      <text x="363.7" y="598.5" font-size="11" font-weight="650" fill="#3563a8">Scope the feature and write the design…</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="348.7" y="919.5" width="270" height="90" rx="8" fill="#1e293b" stroke="#1e293b" stroke-width="2.3"/>
+      <rect x="348.7" y="919.5" width="6" height="90" rx="3" fill="#1e293b"/>
+      <text x="363.7" y="939.5" class="mono" font-size="12.5" font-weight="750" fill="#cbd5e1">n2</text>
+      
+      <rect x="558.7" y="926.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="583.7" y="943.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">Key</text>
+      <text x="363.7" y="976.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="363.7" dy="0">Implement feature</tspan></text>
+      <text x="363.7" y="1001.5" font-size="11" font-weight="650" fill="#cbd5e1">Dev</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="860" y="919.5" width="270" height="90" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2.3"/>
+      <rect x="860" y="919.5" width="6" height="90" rx="3" fill="#cbd5e1"/>
+      <text x="875" y="939.5" class="mono" font-size="12.5" font-weight="750" fill="#64748b">n3</text>
+      
+      <rect x="1070" y="926.5" width="50" height="24" rx="5" fill="#cbd5e1" opacity="0.14"/>
+      <text x="1095" y="943.5" text-anchor="middle" font-size="12" font-weight="800" fill="#1f2937">Step</text>
+      <text x="875" y="976.5" font-size="15.5" font-weight="800" fill="#1f2937"><tspan x="875" dy="0">Write test plan</tspan></text>
+      <text x="875" y="1001.5" font-size="11" font-weight="650" fill="#64748b">QA</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="860" y="1322.5" width="270" height="90" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2.3"/>
+      <rect x="860" y="1322.5" width="6" height="90" rx="3" fill="#cbd5e1"/>
+      <text x="875" y="1342.5" class="mono" font-size="12.5" font-weight="750" fill="#64748b">n4</text>
+      
+      <rect x="1070" y="1329.5" width="50" height="24" rx="5" fill="#cbd5e1" opacity="0.14"/>
+      <text x="1095" y="1346.5" text-anchor="middle" font-size="12" font-weight="800" fill="#1f2937">Step</text>
+      <text x="875" y="1379.5" font-size="15.5" font-weight="800" fill="#1f2937"><tspan x="875" dy="0">Run test suite</tspan></text>
+      <text x="875" y="1404.5" font-size="11" font-weight="650" fill="#64748b">QA</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="860" y="1436.5" width="270" height="90" rx="8" fill="#fff7ed" stroke="#ea9a1a" stroke-width="2.3"/>
+      <rect x="860" y="1436.5" width="6" height="90" rx="3" fill="#ea9a1a"/>
+      <text x="875" y="1456.5" class="mono" font-size="12.5" font-weight="750" fill="#a8620a">n5</text>
+      
+      <rect x="1070" y="1443.5" width="50" height="24" rx="5" fill="#ea9a1a" opacity="0.14"/>
+      <text x="1095" y="1460.5" text-anchor="middle" font-size="12" font-weight="800" fill="#7c4a03">Bottleneck</text>
+      <text x="875" y="1493.5" font-size="15.5" font-weight="800" fill="#7c4a03"><tspan x="875" dy="0">Triage failures</tspan></text>
+      <text x="875" y="1518.5" font-size="11" font-weight="650" fill="#a8620a">Frequent stalls waiting on flaky-test…</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="348.7" y="1379.5" width="270" height="90" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2.3"/>
+      <rect x="348.7" y="1379.5" width="6" height="90" rx="3" fill="#6366f1"/>
+      <text x="363.7" y="1399.5" class="mono" font-size="12.5" font-weight="750" fill="#4f46e5">n6</text>
+      
+      <rect x="558.7" y="1386.5" width="50" height="24" rx="5" fill="#6366f1" opacity="0.14"/>
+      <text x="583.7" y="1403.5" text-anchor="middle" font-size="12" font-weight="800" fill="#312e81">Loop</text>
+      <text x="363.7" y="1436.5" font-size="15.5" font-weight="800" fill="#312e81"><tspan x="363.7" dy="0">Rework implementation</tspan></text>
+      <text x="363.7" y="1461.5" font-size="11" font-weight="650" fill="#4f46e5">Re-entered from QA triage when a fail…</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="1371.3" y="1839.5" width="270" height="90" rx="8" fill="#1e293b" stroke="#1e293b" stroke-width="2.3"/>
+      <rect x="1371.3" y="1839.5" width="6" height="90" rx="3" fill="#1e293b"/>
+      <text x="1386.3" y="1859.5" class="mono" font-size="12.5" font-weight="750" fill="#cbd5e1">n7</text>
+      
+      <rect x="1581.3" y="1846.5" width="50" height="24" rx="5" fill="#ffffff" opacity="0.18"/>
+      <text x="1606.3" y="1863.5" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">Key</text>
+      <text x="1386.3" y="1896.5" font-size="15.5" font-weight="800" fill="#ffffff"><tspan x="1386.3" dy="0">Package build</tspan></text>
+      <text x="1386.3" y="1921.5" font-size="11" font-weight="650" fill="#cbd5e1">Release</text>
+    </g>
+  
+
+    <g filter="url(#card-shadow)">
+      
+      <rect x="1371.3" y="1953.5" width="270" height="90" rx="8" fill="#eef6ff" stroke="#3b82f6" stroke-width="2.3"/>
+      <rect x="1371.3" y="1953.5" width="6" height="90" rx="3" fill="#3b82f6"/>
+      <text x="1386.3" y="1973.5" class="mono" font-size="12.5" font-weight="750" fill="#3563a8">n8</text>
+      
+      <rect x="1581.3" y="1960.5" width="50" height="24" rx="5" fill="#3b82f6" opacity="0.14"/>
+      <text x="1606.3" y="1977.5" text-anchor="middle" font-size="12" font-weight="800" fill="#1e3a5f">Lead</text>
+      <text x="1386.3" y="2010.5" font-size="15.5" font-weight="800" fill="#1e3a5f"><tspan x="1386.3" dy="0">Deploy to production</tspan></text>
+      <text x="1386.3" y="2035.5" font-size="11" font-weight="650" fill="#3563a8">Release</text>
+    </g>
+  
+
+    <text x="38" y="2245" font-size="16" font-weight="800" fill="#18251e">Legend</text>
+    <rect x="118" y="2219" width="17" height="17" rx="4" fill="#3b82f6"/><text x="144" y="2233" font-size="14.5" fill="#526159">Lead</text>
+<rect x="216" y="2219" width="17" height="17" rx="4" fill="#1e293b"/><text x="242" y="2233" font-size="14.5" fill="#526159">Key</text>
+<rect x="314" y="2219" width="17" height="17" rx="4" fill="#ea9a1a"/><text x="340" y="2233" font-size="14.5" fill="#526159">Bottleneck</text>
+<rect x="412" y="2219" width="17" height="17" rx="4" fill="#6366f1"/><text x="438" y="2233" font-size="14.5" fill="#526159">Loop</text>
+    <rect x="500" y="2219" width="17" height="17" rx="4" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="526" y="2233" font-size="14.5" fill="#526159">Refs</text>
+    <line x1="648" y1="2237" x2="700" y2="2237" stroke="#53675d" stroke-width="4" marker-end="url(#arrow-sequence)"/>
+    <text x="720" y="2243" font-size="15" fill="#526159">Sequence</text>
+    <line x1="860" y1="2237" x2="912" y2="2237" stroke="#0f8a65" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#arrow-message)"/>
+    <text x="932" y="2243" font-size="15" fill="#526159">Message</text>
+    <line x1="1072" y1="2237" x2="1124" y2="2237" stroke="#3478db" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#arrow-loop)"/>
+    <text x="1144" y="2243" font-size="15" fill="#526159">Loop</text>
+    <text x="38" y="2291" font-size="15.5" font-weight="650" fill="#56655d">Stages read top to bottom; actor groups read left to right.</text>
+    <text x="38" y="2321" font-size="14.5" fill="#68776f">3 actor lanes are arranged into 3 layout groups; 8 tasks and 9 connections are preserved.</text>
+    <text x="38" y="2361" font-size="13.5" fill="#7b8881">Source: process model derived from the underlying rules. Not legal advice and not an indicator of any real case status.</text>
+    
+  
+</g>
+  <g>
+    <rect x="0" y="360" width="1800" height="403" fill="#ffffff"><animate attributeName="opacity" dur="5.40s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;0.0000;0.1111;1" calcMode="linear"/></rect>
+    <rect x="0" y="763" width="1800" height="403" fill="#ffffff"><animate attributeName="opacity" dur="5.40s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;0.1574;0.2685;1" calcMode="linear"/></rect>
+    <rect x="0" y="1166" width="1800" height="517" fill="#ffffff"><animate attributeName="opacity" dur="5.40s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;0.3148;0.4259;1" calcMode="linear"/></rect>
+    <rect x="0" y="1683" width="1800" height="517" fill="#ffffff"><animate attributeName="opacity" dur="5.40s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;0.4722;0.5833;1" calcMode="linear"/></rect>
+  </g>
+</svg>

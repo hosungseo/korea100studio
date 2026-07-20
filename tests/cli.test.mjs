@@ -42,3 +42,17 @@ test("audit on a board with a dangling edge endpoint exits non-zero", () => {
   fs.writeFileSync(bad, JSON.stringify(board));
   assert.throws(() => execFileSync("node", [CLI, "audit", bad], { stdio: "ignore" }));
 });
+
+test("--help exits 0 and prints usage to stdout", () => {
+  const out = execFileSync("node", [CLI, "--help"], { encoding: "utf8" });
+  assert.match(out, /Usage: korea100studio/);
+});
+
+test("no command exits 0 with help", () => {
+  const out = execFileSync("node", [CLI], { encoding: "utf8" });
+  assert.match(out, /Usage: korea100studio/);
+});
+
+test("unknown command exits non-zero", () => {
+  assert.throws(() => execFileSync("node", [CLI, "frobnicate"], { stdio: "ignore" }));
+});
