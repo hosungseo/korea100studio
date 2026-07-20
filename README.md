@@ -14,10 +14,10 @@ Clone into your agent's skills directory:
 
 ```bash
 # Claude Code
-git clone <repo-url> ~/.claude/skills/korea100studio
+git clone https://github.com/hosungseo/korea100studio.git ~/.claude/skills/korea100studio
 
 # Codex
-git clone <repo-url> ~/.agents/skills/korea100studio
+git clone https://github.com/hosungseo/korea100studio.git ~/.agents/skills/korea100studio
 ```
 
 Then:
