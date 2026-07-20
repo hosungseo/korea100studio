@@ -44,8 +44,23 @@ function parseArgs(argv) {
 }
 
 function readBoard(boardPath) {
-  const raw = fs.readFileSync(boardPath, "utf8");
-  return JSON.parse(raw);
+  if (!boardPath) {
+    console.error("error: no board file given");
+    process.exit(2);
+  }
+  let raw;
+  try {
+    raw = fs.readFileSync(boardPath, "utf8");
+  } catch (err) {
+    console.error(`error: cannot read ${boardPath}: ${err.message}`);
+    process.exit(2);
+  }
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    console.error(`error: ${boardPath} is not valid JSON: ${err.message}`);
+    process.exit(2);
+  }
 }
 
 function resolveProfile(flags, board) {
