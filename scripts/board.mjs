@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { validateBoard } from "./lib/validate.mjs";
+import { validateBoard, checkReferentialIntegrity } from "./lib/validate.mjs";
 import { renderBoardSvg } from "./lib/render-svg.mjs";
 import { computeComposition, budgetViolations } from "./lib/composition.mjs";
 import { buildMotionSvg } from "./lib/motion.mjs";
@@ -67,19 +67,31 @@ function resolveProfile(flags, board) {
   return flags.profile || board.profile || "default";
 }
 
+// Schema + referential-integrity gate. Prints friendly messages and exits 2 on
+// any problem, so authors see "node N3 references lane 'Finances'..." rather
+// than a raw layout stack trace. Returns on success.
+function assertBoardValid(board, boardPath) {
+  const { valid, errors } = validateBoard(board);
+  if (!valid) {
+    console.error(`error: ${boardPath} is not a valid board:`);
+    for (const err of errors) console.error(`  ${err.instancePath || "/"} ${err.message}`);
+    process.exit(2);
+  }
+  const problems = checkReferentialIntegrity(board);
+  if (problems.length) {
+    console.error(`error: ${boardPath} has reference problems:`);
+    for (const p of problems) console.error(`  ${p}`);
+    process.exit(2);
+  }
+}
+
 // --- subcommands -------------------------------------------------------
 
 function cmdRender(argv) {
   const { positional, flags } = parseArgs(argv);
   const boardPath = positional[0];
   const board = readBoard(boardPath);
-
-  const { valid, errors } = validateBoard(board);
-  if (!valid) {
-    console.error(`Invalid board: ${boardPath}`);
-    for (const err of errors) console.error(`  ${err.instancePath || "/"} ${err.message}`);
-    process.exit(2);
-  }
+  assertBoardValid(board, boardPath);
 
   const profile = resolveProfile(flags, board);
   let svg;
@@ -113,6 +125,7 @@ function cmdAudit(argv) {
   const { positional, flags } = parseArgs(argv);
   const boardPath = positional[0];
   const board = readBoard(boardPath);
+  assertBoardValid(board, boardPath);
   const profile = resolveProfile(flags, board);
 
   let result;
@@ -149,12 +162,7 @@ function cmdValidate(argv) {
   const boardPath = positional[0];
   const board = readBoard(boardPath);
 
-  const { valid, errors } = validateBoard(board);
-  if (!valid) {
-    console.error(`Invalid board: ${boardPath}`);
-    for (const err of errors) console.error(`  ${err.instancePath || "/"} ${err.message}`);
-    process.exit(2);
-  }
+  assertBoardValid(board, boardPath);
 
   const profile = resolveProfile(flags, board);
 
@@ -184,12 +192,7 @@ function cmdMotion(argv) {
   const boardPath = positional[0];
   const board = readBoard(boardPath);
 
-  const { valid, errors } = validateBoard(board);
-  if (!valid) {
-    console.error(`Invalid board: ${boardPath}`);
-    for (const err of errors) console.error(`  ${err.instancePath || "/"} ${err.message}`);
-    process.exit(2);
-  }
+  assertBoardValid(board, boardPath);
 
   const profile = resolveProfile(flags, board);
   // The motion SVG is always self-contained: the board is rendered inline, so
@@ -228,6 +231,12 @@ function main() {
   // a missing or unknown command is a usage error (exit 2) on stderr.
   if (command === undefined || command === "help" || command === "--help" || command === "-h") {
     console.log(USAGE);
+    process.exit(0);
+  }
+
+  if (command === "--version" || command === "-v" || command === "version") {
+    const pkg = JSON.parse(fs.readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+    console.log(pkg.version);
     process.exit(0);
   }
 

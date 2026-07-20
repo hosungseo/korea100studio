@@ -1,6 +1,6 @@
 {
   "name": "korea100studio",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turn any process into a vertical swimlane board (SVG/PNG), audit its composition, and animate it. Agent Skill for Claude Code and Codex.",
   "type": "module",
   "bin": {

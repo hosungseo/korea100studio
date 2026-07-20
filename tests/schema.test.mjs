@@ -30,3 +30,24 @@ test("rejects an unknown emphasis value", () => {
   const { valid } = validateBoard(bad);
   assert.equal(valid, false);
 });
+
+import { checkReferentialIntegrity } from "../scripts/lib/validate.mjs";
+
+test("referential integrity: clean board has no problems", () => {
+  assert.deepEqual(checkReferentialIntegrity(minimal), []);
+});
+
+test("referential integrity: flags unknown lane and dangling edge", () => {
+  const bad = structuredClone(minimal);
+  bad.nodes[0].lane = "Ghost";
+  bad.edges.push({ id: "E9", source: "N1", target: "N404", type: "sequence" });
+  const problems = checkReferentialIntegrity(bad);
+  assert.ok(problems.some((p) => p.includes("Ghost")));
+  assert.ok(problems.some((p) => p.includes("N404")));
+});
+
+test("referential integrity: flags duplicate node id", () => {
+  const bad = structuredClone(minimal);
+  bad.nodes.push({ id: "N1", lane: "A", stage: "S1", label: "dup" });
+  assert.ok(checkReferentialIntegrity(bad).some((p) => p.includes("duplicate node id")));
+});

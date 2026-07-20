@@ -63,3 +63,21 @@ test("audit --json emits parseable JSON with score and metrics", () => {
   assert.equal(typeof parsed.score, "number");
   assert.ok(parsed.metrics && typeof parsed.metrics.nodePiercings === "number");
 });
+
+test("--version prints the package version and exits 0", () => {
+  const out = execFileSync("node", [CLI, "--version"], { encoding: "utf8" }).trim();
+  assert.match(out, /^\d+\.\d+\.\d+/);
+});
+
+test("render on a board with an unknown lane fails with a helpful message", () => {
+  const badBoard = JSON.parse(fs.readFileSync("fixtures/generic-sample.json", "utf8"));
+  badBoard.nodes[0].lane = "Nonexistent";
+  const bad = path.join(tmp, "bad-lane.json");
+  fs.writeFileSync(bad, JSON.stringify(badBoard));
+  try {
+    execFileSync("node", [CLI, "render", bad, "--out", path.join(tmp, "x.svg")], { encoding: "utf8" });
+    assert.fail("should have thrown");
+  } catch (err) {
+    assert.match(String(err.stderr), /Nonexistent/);
+  }
+});
