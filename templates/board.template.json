@@ -1,0 +1,20 @@
+{
+  "_comment": "board-v1 skeleton: 2 lanes x 2 stages. Replace lanes/stages/nodes/edges with your process. Every node needs a unique id + a lane/stage that exists in the lanes/stages arrays. Every edge source/target must reference a real node id. emphasis is one of lead/key/bottleneck/loop/normal (optional, defaults to normal-like styling). Remove this _comment field once you're done -- it's ignored by the renderer either way.",
+  "schema_version": 1,
+  "title": "Untitled Board",
+  "subtitle": "",
+  "lanes": ["Lane A", "Lane B"],
+  "stages": ["Stage 1", "Stage 2"],
+  "nodes": [
+    { "id": "node-1", "lane": "Lane A", "stage": "Stage 1", "label": "First step", "emphasis": "lead" },
+    { "id": "node-2", "lane": "Lane B", "stage": "Stage 1", "label": "Second step", "emphasis": "normal" },
+    { "id": "node-3", "lane": "Lane A", "stage": "Stage 2", "label": "Third step", "emphasis": "key" },
+    { "id": "node-4", "lane": "Lane B", "stage": "Stage 2", "label": "Fourth step", "emphasis": "normal" }
+  ],
+  "edges": [
+    { "id": "edge-1", "source": "node-1", "target": "node-2", "type": "sequence" },
+    { "id": "edge-2", "source": "node-2", "target": "node-4", "type": "sequence" },
+    { "id": "edge-3", "source": "node-1", "target": "node-3", "type": "sequence" },
+    { "id": "edge-4", "source": "node-3", "target": "node-4", "type": "sequence" }
+  ]
+}

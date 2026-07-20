@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "title": "Software Release Process",
+  "subtitle": "From scoping a feature to shipping it to production",
+  "lanes": ["Dev", "QA", "Release"],
+  "stages": ["Plan", "Build", "Test", "Ship"],
+  "nodes": [
+    {
+      "id": "n1",
+      "lane": "Dev",
+      "stage": "Plan",
+      "label": "Define scope",
+      "emphasis": "lead",
+      "note": "Scope the feature and write the design doc."
+    },
+    {
+      "id": "n2",
+      "lane": "Dev",
+      "stage": "Build",
+      "label": "Implement feature",
+      "emphasis": "key"
+    },
+    {
+      "id": "n3",
+      "lane": "QA",
+      "stage": "Build",
+      "label": "Write test plan",
+      "emphasis": "normal"
+    },
+    {
+      "id": "n4",
+      "lane": "QA",
+      "stage": "Test",
+      "label": "Run test suite",
+      "emphasis": "normal"
+    },
+    {
+      "id": "n5",
+      "lane": "QA",
+      "stage": "Test",
+      "label": "Triage failures",
+      "emphasis": "bottleneck",
+      "note": "Frequent stalls waiting on flaky-test reruns."
+    },
+    {
+      "id": "n6",
+      "lane": "Dev",
+      "stage": "Test",
+      "label": "Rework implementation",
+      "emphasis": "loop",
+      "note": "Re-entered from QA triage when a failure needs a code fix."
+    },
+    {
+      "id": "n7",
+      "lane": "Release",
+      "stage": "Ship",
+      "label": "Package build",
+      "emphasis": "key"
+    },
+    {
+      "id": "n8",
+      "lane": "Release",
+      "stage": "Ship",
+      "label": "Deploy to production",
+      "emphasis": "lead"
+    }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n1", "target": "n2", "type": "sequence" },
+    { "id": "e2", "source": "n2", "target": "n3", "type": "sequence" },
+    { "id": "e3", "source": "n1", "target": "n3", "type": "message", "label": "scope brief" },
+    { "id": "e4", "source": "n3", "target": "n4", "type": "sequence" },
+    { "id": "e5", "source": "n4", "target": "n5", "type": "sequence" },
+    { "id": "e6", "source": "n5", "target": "n6", "type": "loop", "label": "needs rework" },
+    { "id": "e7", "source": "n6", "target": "n4", "type": "sequence", "label": "retest" },
+    { "id": "e8", "source": "n5", "target": "n7", "type": "sequence", "label": "passes" },
+    { "id": "e9", "source": "n7", "target": "n8", "type": "sequence" }
+  ]
+}

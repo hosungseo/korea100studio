@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "boards": {
+    "generic-sample": {
+      "score": 0,
+      "nodePiercings": 0
+    },
+    "gov-sample": {
+      "score": 19.56,
+      "nodePiercings": 0
+    }
+  }
+}
