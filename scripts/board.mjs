@@ -16,7 +16,7 @@ Commands:
   render <board.json> [--out f.svg] [--png] [--profile p]   Render a board to SVG (and optionally PNG)
   audit <board.json> [--profile p]                          Print composition score and key metrics
   validate <board.json> [--strict] [--profile p]             Validate schema and composition budgets
-  motion <board.json> [--out f.svg] [--embed] [--profile p]  Render an animated (motion) SVG
+  motion <board.json> [--out f.svg] [--profile p]  Render an animated (motion) SVG
   check <file.svg>                                           Sanity-check that a file is a well-formed SVG
 `;
 
@@ -182,8 +182,8 @@ function cmdMotion(argv) {
   }
 
   const profile = resolveProfile(flags, board);
-  // --embed is a no-op alias: the motion SVG is always self-contained
-  // (no imageHref) since inline board rendering is already fully embedded.
+  // The motion SVG is always self-contained: the board is rendered inline, so
+  // there is no external image dependency to embed.
   let svg;
   try {
     svg = buildMotionSvg(board, { profile });

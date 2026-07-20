@@ -64,7 +64,7 @@ function renderSvg(ctx, p) {
       ${arrowMarker("arrow-message", "#0f8a65")}
       ${arrowMarker("arrow-loop", "#3478db")}
       <style>
-        text { font-family: "Apple SD Gothic Neo", "Noto Sans CJK KR", "Noto Sans KR", sans-serif; }
+        text { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans CJK KR", "Noto Sans KR", sans-serif; }
         .mono { font-family: "SFMono-Regular", "Menlo", monospace; }
       </style>
     </defs>`,
@@ -137,7 +137,14 @@ function renderGrid(ctx, p) {
         : "#f5f8f6";
     const labelFill = hasKey ? keyStatus.border : allLead ? "#e4f5ed" : "#eef3f0";
     const labelInk = hasKey ? keyStatus.ink : allLead ? keyStatus.border : "#53645b";
-    const [code, ...labelParts] = stage.split(" ");
+    // Stage names may carry a short code prefix (korea100 convention "G0 Label").
+    // Only treat the first token as a code when it looks like one (short, has a
+    // digit); otherwise render the whole name as the label so plain stage names
+    // like "Intake" read correctly instead of landing in the mono code slot.
+    const parts = stage.split(" ");
+    const hasCode = parts.length > 1 && parts[0].length <= 4 && /\d/.test(parts[0]);
+    const code = hasCode ? parts[0] : "";
+    const labelParts = hasCode ? parts.slice(1) : [stage];
     result.push(
       `<rect x="${GRID_LEFT}" y="${round(y)}" width="${GRID_RIGHT - GRID_LEFT}" height="${round(height)}" fill="${rowFill}"/>`,
       `<rect x="${GRID_LEFT}" y="${round(y)}" width="${STAGE_LABEL_WIDTH}" height="${round(height)}" fill="${labelFill}"/>`,
