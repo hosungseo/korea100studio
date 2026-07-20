@@ -28,3 +28,17 @@ test("audit prints a score", () => {
   const out = execFileSync("node", [CLI, "audit", "fixtures/generic-sample.json"], { encoding: "utf8" });
   assert.match(out, /score/i);
 });
+
+test("render on a missing file exits non-zero", () => {
+  assert.throws(() =>
+    execFileSync("node", [CLI, "render", path.join(tmp, "does-not-exist.json")], { stdio: "ignore" })
+  );
+});
+
+test("audit on a board with a dangling edge endpoint exits non-zero", () => {
+  const board = JSON.parse(fs.readFileSync("fixtures/generic-sample.json", "utf8"));
+  board.edges.push({ id: "ebad", source: "n1", target: "no-such-node", type: "sequence" });
+  const bad = path.join(tmp, "bad-edge.json");
+  fs.writeFileSync(bad, JSON.stringify(board));
+  assert.throws(() => execFileSync("node", [CLI, "audit", bad], { stdio: "ignore" }));
+});

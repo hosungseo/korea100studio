@@ -82,7 +82,13 @@ function cmdRender(argv) {
   }
 
   const profile = resolveProfile(flags, board);
-  const svg = renderBoardSvg(board, { profile });
+  let svg;
+  try {
+    svg = renderBoardSvg(board, { profile });
+  } catch (err) {
+    console.error(`error: ${String(err.message).split("\n")[0]}`);
+    process.exit(1);
+  }
 
   const outSvg = flags.out || `${path.basename(boardPath, path.extname(boardPath))}.svg`;
   fs.writeFileSync(outSvg, svg);
@@ -109,7 +115,13 @@ function cmdAudit(argv) {
   const board = readBoard(boardPath);
   const profile = resolveProfile(flags, board);
 
-  const result = computeComposition(board, profile);
+  let result;
+  try {
+    result = computeComposition(board, profile);
+  } catch (err) {
+    console.error(`error: ${String(err.message).split("\n")[0]}`);
+    process.exit(1);
+  }
   const m = result.metrics;
   console.log(`Board: ${result.name}`);
   console.log(`score: ${result.score}`);
@@ -172,7 +184,13 @@ function cmdMotion(argv) {
   const profile = resolveProfile(flags, board);
   // --embed is a no-op alias: the motion SVG is always self-contained
   // (no imageHref) since inline board rendering is already fully embedded.
-  const svg = buildMotionSvg(board, { profile });
+  let svg;
+  try {
+    svg = buildMotionSvg(board, { profile });
+  } catch (err) {
+    console.error(`error: ${String(err.message).split("\n")[0]}`);
+    process.exit(1);
+  }
 
   const outSvg = flags.out || `${path.basename(boardPath, path.extname(boardPath))}.motion.svg`;
   fs.writeFileSync(outSvg, svg);
